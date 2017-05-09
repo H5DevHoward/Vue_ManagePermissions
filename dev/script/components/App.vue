@@ -1,15 +1,15 @@
 <template>
     <div class="wrapper">
-        <sign-in-component />
+        <router-view />
     </div>
 </template>
 
 <script>
-import SignInComponent from './SignInComponent.vue';
+import RouterView from './RouterView';
 
 export default {
     components: {
-        SignInComponent,
+        RouterView,
     },
 };
 </script>

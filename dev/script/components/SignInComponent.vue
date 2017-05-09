@@ -20,6 +20,8 @@
 
 <script>
 import _ from 'lodash';
+import VueRouter from 'vue-router';
+const router = new VueRouter();
 
 export default {
     data() {
@@ -88,10 +90,11 @@ export default {
                             this.$alert(`${index === -1 ? '登录失败' : '登陆成功'}`, '登录提示', {
                                 confirmButtonText: '确定',
                                 callback: action => {
-                                    // this.$message({
-                                    //     type: 'info',
-                                    //     message: `action: ${action}`,
-                                    // });
+                                    if (index === -1) {
+                                        router.push('/');
+                                    } else {
+                                        router.push('info');
+                                    }
                                 },
                             });
                         });

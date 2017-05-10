@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import 'whatwg-fetch';
 import _ from 'lodash';
 import VueRouter from 'vue-router';
 
@@ -80,7 +79,7 @@ export default {
         submitForm(formName) {
             this.$refs[formName].validate(valid => {
                 if (valid) {
-                    fetch('data.json')
+                    this.$http.get('data.json')
                         .then(response =>
                             response.json()
                         )
@@ -95,6 +94,10 @@ export default {
                                     if (index === -1) {
                                         router.push('/');
                                     } else {
+                                        this.$store.dispatch('login', {
+                                            username: this.ruleForm2.username,
+                                            password: this.ruleForm2.pass,
+                                        });
                                         router.push('info');
                                     }
                                 },

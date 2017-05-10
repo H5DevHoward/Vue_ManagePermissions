@@ -6,10 +6,7 @@ process.noDeprecation = true;
 
 module.exports = {
     context: path.join(process.cwd(), 'dev'),
-    entry: [
-        'whatwg-fetch',
-        './script/index.js',
-    ],
+    entry: './script/index.js',
     output: {
         path: path.join(process.cwd(), 'dist'),
         filename: '[name].js',

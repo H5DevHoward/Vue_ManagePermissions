@@ -9,17 +9,13 @@ Vue.use(VueRouter);
 const routes = [
     {
         path: '/',
+        name: 'home',
         component: SignInComponent,
-        meta: {
-            scrollToTop: true,
-        },
     },
     {
         path: '/info',
+        name: 'information',
         component: UserInfo,
-        meta: {
-            scrollToTop: true,
-        },
     },
 ];
 

@@ -10,6 +10,9 @@ import App from '../component/App.vue';
 Vue.use(ElementUI);
 Vue.use(VueResource);
 
+window.store = store;
+console.log(store);
+
 const app = new Vue({
     router,
     store,

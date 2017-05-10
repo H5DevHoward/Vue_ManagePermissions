@@ -3,5 +3,6 @@ export default {
     system: {
         username: '',
         password: '',
+        isAdmin: false,
     },
 };

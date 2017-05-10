@@ -20,6 +20,7 @@
 
 <script>
 import _ from 'lodash';
+import 'vuex';
 import VueRouter from 'vue-router';
 
 const router = new VueRouter();
@@ -95,8 +96,7 @@ export default {
                                         router.push('/');
                                     } else {
                                         this.$store.dispatch('login', {
-                                            username: this.ruleForm2.username,
-                                            password: this.ruleForm2.pass,
+                                            user: json[index],
                                         });
                                         router.push('info');
                                     }

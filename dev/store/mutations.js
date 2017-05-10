@@ -7,10 +7,9 @@ export default {
     [types.DECREMENT] (state) {
         state.count -= 1;
     },
-    [types.SETUSERNAME] (state, payload) {
-        state.system.username = payload;
-    },
-    [types.SETPASSWORD] (state, payload) {
-        state.system.password = payload;
+    [types.SETUSER] (state, payload) {
+        state.system.username = payload.username;
+        state.system.password = payload.password;
+        state.system.isAdmin = payload.isAdmin;
     },
 };

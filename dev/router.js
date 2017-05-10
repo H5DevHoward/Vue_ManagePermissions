@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import store from './store';
 
 const SignInComponent = resolve => require(['./component/SignInComponent.vue'], resolve);
 const UserInfo = resolve => require(['./component/UserInfo.vue'], resolve);
@@ -28,25 +29,28 @@ const router = new VueRouter({
     routes,
 });
 
-// if (window.localStorage.getItem('token')) {
-//     this.$store.commit('login', window.localStorage.getItem('token'));
-// }
-//
-// router.beforeEach((to, from, next) => {
-//     if (to.meta.requireAuth) {
-//         if (this.$store.state.token) {
-//             next();
-//         } else {
-//             next({
-//                 path: '/',
-//                 query: {
-//                     redirect: to.fullPath,
-//                 },
-//             });
-//         }
-//     } else {
-//         next();
-//     }
-// });
+if (window.localStorage.getItem('token')) {
+    store.commit('LOGIN', {
+        user: JSON.parse(window.localStorage.getItem('user')),
+        token: window.localStorage.getItem('token'),
+    });
+}
+
+router.beforeEach((to, from, next) => {
+    if (to.meta.requireAuth) {
+        if (store.state.token) {
+            next();
+        } else {
+            next({
+                path: '/',
+                query: {
+                    redirect: to.fullPath,
+                },
+            });
+        }
+    } else {
+        next();
+    }
+});
 
 export default router;

@@ -8,6 +8,6 @@ export default {
         commit(types.DECREMENT);
     },
     login: ({commit}, payload) => {
-        commit(types.SETUSER, payload.user);
+        commit(types.LOGIN, payload);
     },
 };

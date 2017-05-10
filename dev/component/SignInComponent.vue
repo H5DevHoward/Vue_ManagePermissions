@@ -94,6 +94,7 @@ export default {
                                     } else {
                                         this.$store.dispatch('login', {
                                             user: response.data[index],
+                                            token: new Date().getTime(),
                                         });
                                         router.push('info');
                                     }

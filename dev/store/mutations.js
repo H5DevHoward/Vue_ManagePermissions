@@ -7,9 +7,16 @@ export default {
     [types.DECREMENT] (state) {
         state.count -= 1;
     },
-    [types.SETUSER] (state, payload) {
-        state.system.username = payload.username;
-        state.system.password = payload.password;
-        state.system.isAdmin = payload.isAdmin;
+    [types.LOGIN] (state, payload) {
+        localStorage.user = JSON.stringify(payload.user);
+        localStorage.token = payload.token;
+        state.user = payload.user;
+        state.token = payload.token;
+    },
+    [types.LOGOUT] (state) {
+        localStorage.removeItem('user');
+        localStorage.removeItem('token');
+        state.user = null;
+        state.token = null;
     },
 };

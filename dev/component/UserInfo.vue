@@ -35,7 +35,7 @@
                     </el-cascader>
                 </div>
             </el-col>
-            <el-col :span="12" v-if="todoSystem.isAdmin">
+            <el-col :span="12" v-if="todoUser.isAdmin">
                 <span class="demonstration">修改信息</span>
                 <el-switch v-model="value" on-text="" off-text="">
                 </el-switch>
@@ -88,7 +88,7 @@ export default {
         };
     },
     computed: mapGetters([
-        'todoSystem',
+        'todoUser',
     ]),
     methods: {
         onSubmit() {

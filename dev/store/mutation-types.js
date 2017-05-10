@@ -1,5 +1,6 @@
 export default {
     INCREMENT: 'INCREMENT',
     DECREMENT: 'DECREMENT',
-    SETUSER: 'SETUSER',
+    LOGIN: 'LOGIN',
+    LOGOUT: 'LOGOUT',
 };

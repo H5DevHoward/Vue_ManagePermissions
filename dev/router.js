@@ -1,9 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-
-const SignInComponent = resolve => require(['./script/components/SignInComponent.vue'], resolve);
-const UserInfo = resolve => require(['./script/components/UserInfo.vue'], resolve);
+const SignInComponent = resolve => require(['./component/SignInComponent.vue'], resolve);
+const UserInfo = resolve => require(['./component/UserInfo.vue'], resolve);
 
 Vue.use(VueRouter);
 

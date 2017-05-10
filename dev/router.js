@@ -15,6 +15,9 @@ const routes = [
     {
         path: '/info',
         name: 'information',
+        meta: {
+            requireAuth: true,
+        },
         component: UserInfo,
     },
 ];
@@ -24,5 +27,26 @@ const router = new VueRouter({
     base: __dirname,
     routes,
 });
+
+// if (window.localStorage.getItem('token')) {
+//     this.$store.commit('login', window.localStorage.getItem('token'));
+// }
+//
+// router.beforeEach((to, from, next) => {
+//     if (to.meta.requireAuth) {
+//         if (this.$store.state.token) {
+//             next();
+//         } else {
+//             next({
+//                 path: '/',
+//                 query: {
+//                     redirect: to.fullPath,
+//                 },
+//             });
+//         }
+//     } else {
+//         next();
+//     }
+// });
 
 export default router;

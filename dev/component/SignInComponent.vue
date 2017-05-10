@@ -20,7 +20,7 @@
 
 <script>
 import _ from 'lodash';
-import 'vuex';
+import axios from 'axios';
 import VueRouter from 'vue-router';
 
 const router = new VueRouter();
@@ -80,12 +80,9 @@ export default {
         submitForm(formName) {
             this.$refs[formName].validate(valid => {
                 if (valid) {
-                    this.$http.get('data.json')
-                        .then(response =>
-                            response.json()
-                        )
-                        .then(json => {
-                            const index = _.findIndex(json, {
+                    axios.get('data.json')
+                        .then(response => {
+                            const index = _.findIndex(response.data, {
                                 username: this.ruleForm2.username,
                                 password: this.ruleForm2.pass,
                             });
@@ -96,7 +93,7 @@ export default {
                                         router.push('/');
                                     } else {
                                         this.$store.dispatch('login', {
-                                            user: json[index],
+                                            user: response.data[index],
                                         });
                                         router.push('info');
                                     }

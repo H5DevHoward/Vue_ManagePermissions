@@ -80,7 +80,7 @@ export default {
         submitForm(formName) {
             this.$refs[formName].validate(valid => {
                 if (valid) {
-                    axios.get('data.json')
+                    axios.get('http://localhost:8081/test')
                         .then(response => {
                             const index = _.findIndex(response.data, {
                                 username: this.ruleForm2.username,
